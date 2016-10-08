@@ -26,7 +26,6 @@ def all_dates():
         # Get number of seconds since 1AD
         unixtime = int(time.mktime(d.timetuple()))
         unixtime += SECONDS_EPOCH
-        unixtime /= (3600 * 24)
 
         data.append((unixtime, year, delta.days + 1))
 

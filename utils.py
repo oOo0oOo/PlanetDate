@@ -40,52 +40,25 @@ def seconds_since_1aD():
     return int(time.time()) + SECONDS_EPOCH
 
 
-def hours_to_time(hours):
-    sec = (hours * 3600) - 62135780134
-    sec -= int(365.256363004 * 24 * 3600)
-    return sec
-
-
-def dates_from_seconds_numpy(seconds):
-    '''
-        Calculates the current date (year, day) for each planet
-        based on number of revolutions and rotations since 1 AD.
-
-        Uses data from: http://ssd.jpl.nasa.gov/horizons.cgi, queried 4.10.16
-        Precision of len_day values is not always the actual precision of the measurement
-
-        Returns a bad linear approximation...
-    '''
-    d_t = np.repeat(seconds, LEN_DAY.shape[0])
-
-    remainder, year = np.modf(d_t/ORBITAL_PERIOD)
-    earth_days = remainder * ORBITAL_PERIOD
-    remainder2, day = np.modf(earth_days / LEN_DAY)
-
-    year = (year + 1).astype('uint') # Normal humans start counting at 1
-    day = (day + 1).astype('uint')
-
-    # Remainders indicate percentage of progress along the current year / day
-    remainder = np.round(100 * remainder).astype('uint')
-    remainder2 = np.round(100* remainder2).astype('uint')
-
-    return list(year), list(day), list(remainder)
-
-
-
 def dates_from_seconds(seconds):
     '''
-        A non-numpy version
+        Calculates the current date (year, day) for each planet
+        based on number seconds since epoch.
+
+        uses ORBITAL_PERIOD & LEN_DAY
     '''
-    seconds = float(seconds)
+    # Convert to days
+    seconds = float(seconds/ (3600 * 24))
 
     years, days, remainders = [], [], []
 
     for i, period in enumerate(ORBITAL_PERIOD):
+        # Year from orbital period
         year_float = seconds/period
         year = int(year_float)
         remainder = year_float - year
 
+        # Day from rotational period (len day)
         earth_days = remainder * period
         day = int(earth_days/LEN_DAY[i])
 
@@ -101,7 +74,6 @@ def dates_from_seconds(seconds):
 
 def get_planet_dates():
     d_t = seconds_since_1aD()
-    d_t /= (3600 * 24)
     return dates_from_seconds(d_t)
 
 
