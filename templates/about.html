@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guide to the Solar System</title>
+    <link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='foundation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+    <div class="row" style = "height: 100px">
+        <h3 class="large-6 large-centered large-push-1 columns header">About</h3>
+    </div>
+
+    <div class="row">
+        <div class="large-6 large-centered columns">
+            <p>
+                A year is the time it takes for a planet to revolve around the sun. Further, a day is the time it takes for a planet to turn once around its rotational axis.
+            </p>
+            <p>
+                We use  62138156134 (magic constant) + unix timestamp (seconds since unix epoch) to calculate the total number of seconds that have passed since 1.1.0001 AD.
+            </p>
+            <p>
+                Given the orbital period in Hz we can calculate the current year:
+            </p>
+            <p>
+                n_years = s_passed / orbital_period.
+            </p>
+            <p>
+                Days are calculated from the remainder of this division:
+            </p>
+            <p>
+                n_days = (remainder * orbital_period) / len_day
+            </p>
+            <p>
+                All orbital data was obtained from:
+                http://ssd.jpl.nasa.gov/horizons.cgi
+            </p>
+            <p>
+                According to a rudimentary test, the date on Earth will not be off by more than 1 day during the next few years.
+                Have a look at the source for more details:
+            </p>
+            <p>
+                <a href="https://github.com/oOo0oOo/PlanetDate">PlanetDate</a>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-4 small-centered columns">
+            <a href="/">return</a>
+        </div>
+    </div>
+
+</body>

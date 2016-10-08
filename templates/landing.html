@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guide to the Solar System</title>
+    <link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='foundation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+    <div class="row" style = "height: 100px">
+        <h3 class="large-6 large-centered large-push-1 columns header">Guide to the Solar System</h3>
+    </div>
+
+    <div class="row">
+        <div class="large-10 large-centered columns">
+        {% for name, year, day, r_year in planet_data %}
+
+            <div class="row">
+                <div class="large-4 large-push-3 columns vcenter"><img src="static/{{name}}.png"></div>
+
+                <div class="large-6 columns vcenter">
+                    <p>
+                        <h5><b>{{ name }}</b>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Day {{ day }}
+                        &nbsp;&nbsp;&nbsp;
+                        Year {{ year }} AD</h5>
+                        <p>
+                            <div class="progress primary">
+                                <span class="progress-meter blue" style="width: {{r_year}}%"></span>
+                            </div>
+                        </p>
+                    </p>
+                </div>
+            </div>
+
+        {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 small-centered columns">
+            <a href="/about">about</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+html, body
+{
+    height: 100% !important;
+    background-color: #0A0B0C !important;
+    color: #E2E2E2;
+    font-size: 17pt;
+}
+
+
+
+html, body,
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Monda', "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+a{
+    font-size: 24pt;
+}
+
+.row {
+    margin-bottom: 6em;
+}
+
+.vcenter {
+position: relative;
+top: 50%;
+transform: translateY(-50%);
+}
+
+.ralign {
+position: relative;
+right: 5%;
+transform: translateX(+95%);
+}
