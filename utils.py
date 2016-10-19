@@ -12,7 +12,7 @@ LEN_DAY = (175.9421,
     0.714166667, # Uranus: 17.14 h
     0.695833333, # Neptune: 16.7 h
     6.387230 # Pluto: wiki
-    ) # [d]
+    ) # [d = 24h]
 
 # Sidereal orbital period
 ORBITAL_PERIOD = (87.969257,
@@ -26,11 +26,15 @@ ORBITAL_PERIOD = (87.969257,
     91162.49913 # Pluto: 249.58932 yr * 365.25 days in julian year ?
     ) # [d]
 
-# d_t = 62135780134 # Seconds until 1.1.1970
-# d_t += int(3600 * 24 * 27.5) # Manual correction
+d_t = 62135780134 # Seconds until 1.1.1970
+d_t += int(3600 * 24 * 27.5) # Manual correction
+SECONDS_EPOCH = d_t
 
-SECONDS_EPOCH = 62138156134
+# SECONDS_EPOCH = 62138156134
 
+# Calculate the max number of days during a year
+max_days = [ORBITAL_PERIOD[i]/LEN_DAY[i] for i in range(len(LEN_DAY))]
+MAX_DAYS = [int(m)+1 for m in max_days]
 
 def seconds_since_1aD():
     '''
@@ -69,7 +73,7 @@ def dates_from_seconds(seconds):
         # Remainder is a percentage
         remainders.append(int(round(100*remainder)))
 
-    return years, days, remainders
+    return years, days, MAX_DAYS, remainders
 
 
 def get_planet_dates():
@@ -78,7 +82,7 @@ def get_planet_dates():
 
 
 if __name__ == '__main__':
-    year, day, year_progress = get_planet_dates()
+    year, day, max_day, year_progress = get_planet_dates()
     print year
     print day
     print year_progress

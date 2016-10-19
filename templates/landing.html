@@ -13,29 +13,33 @@
 </head>
 <body>
 
-    <div class="row" style = "height: 100px">
+    <div class="row title" style = "height: 100px">
         <h3 class="large-6 large-centered large-push-1 columns header">Guide to the Solar System</h3>
     </div>
 
     <div class="row">
         <div class="large-10 large-centered columns">
-        {% for name, year, day, r_year in planet_data %}
+        {% for name, year, day, max_day, r_year in planet_data %}
 
-            <div class="row">
+            <div class="row planet">
                 <div class="large-4 large-push-3 columns vcenter"><img src="static/{{name}}.png"></div>
 
                 <div class="large-6 columns vcenter">
+                    <h5><b>{{ name }}</b>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Day {{ day }} of {{ max_day }}</h5>
+                    <!-- <p>
+                        <div class="small-6 small-push-2 columns">
+                            <h5>Year {{ year }} AD</h5>
+                        </div>
+                    </p> -->
                     <p>
-                        <h5><b>{{ name }}</b>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Day {{ day }}
-                        &nbsp;&nbsp;&nbsp;
-                        Year {{ year }} AD</h5>
-                        <p>
-                            <div class="progress primary">
-                                <span class="progress-meter blue" style="width: {{r_year}}%"></span>
-                            </div>
-                        </p>
+                    <div class="progress small-5 primary">
+                        <span class="progress-meter blue" style="width: {{r_year}}%"></span>
+                    </div>
+                    </p>
+                    <p>
+                    <h5>Year {{ year }} AD</h5>
                     </p>
                 </div>
             </div>
@@ -44,7 +48,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row title">
         <div class="small-4 small-centered columns">
             <a href="/about">about</a>
         </div>

@@ -13,26 +13,26 @@
 </head>
 <body>
 
-    <div class="row" style = "height: 100px">
+    <div class="row about" style = "height: 100px">
         <h3 class="large-6 large-centered large-push-1 columns header">About</h3>
     </div>
 
-    <div class="row">
+    <div class="row title">
         <div class="large-6 large-centered columns">
             <p>
-                A year is the time it takes for a planet to revolve around the sun. Further, a day is the time it takes for a planet to turn once around its rotational axis.
+                A year is the time it takes for a planet to orbit around the sun once. Further, a day is the time it takes for a planet to revolve once around its rotational axis.
             </p>
             <p>
                 The progress bar indicates how far along a planet has already progressed in the current year.
             </p>
             <p>
-                We use  62138156134 (magic constant) + unix timestamp (seconds since unix epoch) to calculate the total number of seconds that have passed since 1.1.0001 AD.
+                We use  62138156134 (magic constant) + unix timestamp (seconds since <a class="text_link" href="https://en.wikipedia.org/wiki/Unix_time">unix epoch</a>) to calculate the amount of seconds that have passed since 1.1.0001 AD.
             </p>
             <p>
                 Given the orbital period we can calculate the current year:
             </p>
             <p>
-                n_years = t_passed / orbital_period.
+                n_years = t_passed / orbital_period
             </p>
             <p>
                 Days are calculated from the remainder of this division:
@@ -41,22 +41,22 @@
                 n_days = (remainder * orbital_period) / len_day
             </p>
             <p>
+                Note that Mercury and Venus are both <a class="text_link" href="https://en.wikipedia.org/wiki/Tidal_locking">tidally locked</a> to the sun and thus experience only 1 or 2 solar days per year respectively (rounded).
+            </p>
+            <p>
                 All orbital data was obtained from:
-                http://ssd.jpl.nasa.gov/horizons.cgi
+                <a class="text_link" href="http://ssd.jpl.nasa.gov/horizons.cgi">http://ssd.jpl.nasa.gov/horizons.cgi</a>
             </p>
             <p>
-                According to a rudimentary test, the date on Earth will not be off by more than 1 day during the next few years.
-                Have a look at the source for more details:
-            </p>
-            <p>
-                <a href="https://github.com/oOo0oOo/PlanetDate">PlanetDate</a>
+                According to rudimentary tests, the date on Earth will not be off by more than 1 day during the next few years.
+                Have a look at the <a class="text_link" href="https://github.com/oOo0oOo/PlanetDate">source</a> for more details.
             </p>
             <p>
                 Made in 8370 AD (Mercury) by Oliver Dressler
             </p>
         </div>
     </div>
-    <div class="row">
+    <div class="row title">
         <div class="small-4 small-centered columns">
             <a href="/">return</a>
         </div>

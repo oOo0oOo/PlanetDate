@@ -3,7 +3,7 @@ html, body
 {
     height: 100% !important;
     background-color: #0A0B0C !important;
-    color: #E5E5E5;
+    color: #F3F3F3;
     font-size: 17pt;
 }
 
@@ -15,11 +15,24 @@ h1, h2, h3, h4, h5, h6{
 }
 
 a{
-    font-size: 24pt;
+    font-size: 26pt;
 }
 
-.row {
+a.text_link{
+    font-size: 18pt;
+}
+
+
+.row.planet {
     margin-bottom: 6em;
+}
+
+.row.title{
+    margin-bottom: 8em;
+}
+
+.row.about{
+    margin-bottom: 3em;
 }
 
 .vcenter {
