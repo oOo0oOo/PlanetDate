@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Guide to the Solar System</title>
+    <title>Solar Calendar</title>
     <link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
 
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='foundation.min.css') }}">
@@ -22,12 +22,32 @@
         {% for name, year, day, max_day, r_year in planet_data %}
 
             <div class="row planet">
-                <div class="large-4 large-push-3 columns vcenter"><img src="static/{{name}}.png"></div>
+                <div class="large-4 large-push-3 columns vcenter">
+                    {% if name in ('Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune') %}
+                    <a href="https://en.wikipedia.org/wiki/{{name}}_(planet)">
+                    {% else %}
+                    <a href="https://en.wikipedia.org/wiki/{{name}}_(dwarf_planet)">
+                    {% endif %}
+
+                    <img src="static/{{name}}.png" alt="{{name}}" title="{{name}} on Wikipedia">
+                    </a>
+                </div>
 
                 <div class="large-6 columns vcenter">
                     <h5><b>{{ name }}</b>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Day {{ day }} of {{ max_day }}</h5>
+
+                    {% if day > 0 %}
+                    Day {{ day }} of {{ max_day }}
+                    {% else %}
+                    Day unkown
+                    {% endif %}
+
+                    {% if name in ('Mercury', 'Venus') %}
+                    <a href="https://en.wikipedia.org/wiki/Tidal_locking">*</a>
+                    {% endif %}
+
+                    </h5>
                     <!-- <p>
                         <div class="small-6 small-push-2 columns">
                             <h5>Year {{ year }} AD</h5>

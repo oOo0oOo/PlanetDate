@@ -26,6 +26,16 @@
                 The progress bar indicates how far along a planet has already progressed in the current year.
             </p>
             <p>
+                Note that Mercury and Venus are both <a class="text_link" href="https://en.wikipedia.org/wiki/Tidal_locking">tidally locked</a> to the sun and thus experience only 1 or 2 solar days per year respectively.
+            </p>
+            <p>&nbsp;</p>
+            <p>
+                Planetary orbital data was obtained from
+                <a class="text_link" href="http://ssd.jpl.nasa.gov/horizons.cgi">jpl.nasa.gov</a>.
+                Dwarf planet orbital parameters according to
+                <a class="text_link" href="https://en.wikipedia.org/wiki/List_of_gravitationally_rounded_objects_of_the_Solar_System">wikipedia</a>.
+            </p>
+            <p>
                 We use  62138156134 (magic constant) + unix timestamp (seconds since <a class="text_link" href="https://en.wikipedia.org/wiki/Unix_time">unix epoch</a>) to calculate the amount of seconds that have passed since 1.1.0001 AD.
             </p>
             <p>
@@ -41,16 +51,10 @@
                 n_days = (remainder * orbital_period) / len_day
             </p>
             <p>
-                Note that Mercury and Venus are both <a class="text_link" href="https://en.wikipedia.org/wiki/Tidal_locking">tidally locked</a> to the sun and thus experience only 1 or 2 solar days per year respectively (rounded).
-            </p>
-            <p>
-                All orbital data was obtained from:
-                <a class="text_link" href="http://ssd.jpl.nasa.gov/horizons.cgi">http://ssd.jpl.nasa.gov/horizons.cgi</a>
-            </p>
-            <p>
-                According to rudimentary tests, the date on Earth will not be off by more than 1 day during the next few years.
+                According to simple tests, the date on Earth will not be off by more than 1 day during the next few years.
                 Have a look at the <a class="text_link" href="https://github.com/oOo0oOo/PlanetDate">source</a> for more details.
             </p>
+            <p>&nbsp;</p>
             <p>
                 Made in 8370 AD (Mercury) by Oliver Dressler
             </p>
